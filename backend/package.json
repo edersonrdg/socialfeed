@@ -17,9 +17,10 @@
   },
   "scripts": {
     "build": "tsc",
-    "dev": "tsnd src/main/server.ts"
+    "dev": "tsnd src/index.ts"
   },
   "dependencies": {
+    "dotenv": "^9.0.2",
     "express": "^4.17.1"
   }
 }
