@@ -1,9 +1,8 @@
 import { Router } from 'express'
+import userRoute from '../routes/user.routes'
 
 const routes = Router()
 
-routes.get('/', (request, response) => {
-  return response.send('running on routes')
-})
+routes.use('/users', userRoute)
 
 export default routes
