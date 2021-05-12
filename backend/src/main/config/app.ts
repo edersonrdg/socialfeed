@@ -1,9 +1,8 @@
 import express from 'express'
+import routes from './routes'
 
 const app = express()
 
-app.get('/', (request, response) => {
-  return response.send('running on ts-node-dev')
-})
+app.use(routes)
 
 export default app
