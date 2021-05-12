@@ -1,9 +1,9 @@
-import express from 'express';
+import express from 'express'
 
-const app = express();
+const app = express()
 
 app.get('/', (request, response) => {
-    return response.send('running on app')
+  return response.send('running on app')
 })
 
-export default app;
+export default app
