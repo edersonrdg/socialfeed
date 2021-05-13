@@ -1,14 +1,5 @@
-export type SignUpParams = {
-  email: string
-  password: string
-  confirmPassword: string
-}
-
-export type SignUpResult = {
-  id: string
-  email: string
-}
+import { CreateUserRequest, CreateUserResponse } from '../../domain/models/User'
 
 export interface SignUp {
-  execute: (account: SignUpParams) => Promise<SignUpResult>
+  execute: (account: CreateUserRequest) => Promise<CreateUserResponse>
 }
