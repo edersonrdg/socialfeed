@@ -1,16 +1,13 @@
+import { SignUp, SignUpParams } from '../../domain/userCases/signUp'
 import { Controller } from '../../presentation/protocols/controller'
 import { HttpResponse } from '../../presentation/protocols/http'
 
-type Request = {
-  email: string,
-  password: string,
-  confirmPassword: string
-}
-
 export class SignUpController implements Controller {
-  async handle (request: Request): Promise<HttpResponse> {
+  constructor (private readonly signUp: SignUp) {}
+  async handle (request: SignUpParams): Promise<HttpResponse> {
+    const response = await this.signUp.execute(request)
     return {
-      body: request,
+      body: response,
       statusCode: 200
     }
   }
