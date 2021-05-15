@@ -1,6 +1,6 @@
 import { EntityRepository, getRepository } from 'typeorm'
 import Users from '../models/User'
-import { UserRepository } from '../../../../data/protocols/IUserRepository'
+import { UserRepository } from '../../../../data/protocols/db/IUserRepository'
 import { CreateUserDb, CreateUserResponseDB } from '../../../../data/models/User'
 
 @EntityRepository(Users)
