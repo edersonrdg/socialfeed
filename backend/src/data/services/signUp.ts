@@ -1,3 +1,4 @@
+import { BadRequestError } from '../../presentation/errors'
 import { UserRepository } from '../../data/protocols/IUserRepository'
 import { CreateUserRequest, CreateUserResponse } from '../../domain/models/User'
 import { SignUp } from '../../domain/userCases/signUp'
@@ -8,8 +9,12 @@ export class SignUpService implements SignUp {
     if (password !== confirmPassword) {
       console.log('confirm password invalid')
     }
-    const createUser = await this.userRespository.add({ email, password })
 
-    return createUser
+    const validEmail = await this.userRespository.getByEmail(email)
+    if (validEmail) throw new BadRequestError('Email already exists', 403)
+
+    // const createUser = await this.userRespository.add({ email, password })
+
+    return { id: 'qwe', email: email }
   }
 }

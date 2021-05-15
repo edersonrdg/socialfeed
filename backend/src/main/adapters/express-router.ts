@@ -7,8 +7,8 @@ export const adapt = (controller: Controller) => {
       ...(request.body || {}),
       ...(request.params || {})
     }
-    const { statusCode, body } = await controller.handle(data)
+    const httpResponse = await controller.handle(data)
 
-    return response.json(body).status(statusCode)
+    return response.status(httpResponse.statusCode).json(httpResponse.body)
   }
 }

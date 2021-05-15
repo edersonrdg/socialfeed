@@ -9,7 +9,7 @@ export class SignUpController implements Controller {
     const response = await this.signUp.execute(request)
     return {
       body: response,
-      statusCode: 201
+      statusCode: 200
     }
   }
 }

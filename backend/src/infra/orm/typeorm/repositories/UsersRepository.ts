@@ -17,6 +17,16 @@ class UsersRepositoryMySql implements UserRepository {
 
     return { id, email }
   }
+
+  async getByEmail (email: string): Promise<boolean> {
+    const userRepositoryTypeORM = getRepository(Users)
+    const user = await userRepositoryTypeORM.find({
+      where: { email }
+    })
+
+    if (user.length) return true
+    return false
+  }
 }
 
 export default UsersRepositoryMySql
