@@ -11,10 +11,11 @@ export class SignUpService implements SignUp {
     private readonly hash: Hasher) {}
 
   async execute ({ email, password }: CreateUserDb): Promise<CreateUserResponse> {
-    const validEmail = await this.userRespository.getByEmail(email)
-    if (validEmail) throw new BadRequestError('Email already exists', 403)
+    const emailExists = await this.userRespository.getByEmail(email)
+    if (emailExists) throw new BadRequestError('Email already exists', 403)
 
     const hashedPassword = await this.hash.hash(password)
+
     const createUser = await this.userRespository.add({ email, password: hashedPassword })
 
     return createUser

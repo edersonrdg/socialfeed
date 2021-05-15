@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express'
-import { BadRequestError } from './'
+import { BadRequestError } from '../../presentation/errors'
 
 export function errorTreatment (error: Error, request: Request, response: Response, _: NextFunction) {
   if (error instanceof BadRequestError) {

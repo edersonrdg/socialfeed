@@ -1,7 +1,7 @@
 import express from 'express'
 import 'express-async-errors'
 import routes from './routes'
-import { errorTreatment } from '../../presentation/errors/ErrorTreatment'
+import { errorTreatment } from './errorTreatments'
 
 const app = express()
 
