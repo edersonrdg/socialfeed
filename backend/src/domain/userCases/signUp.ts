@@ -1,5 +1,6 @@
-import { CreateUserRequest, CreateUserResponse } from '../../domain/models/User'
+import { CreateUserDb } from '../../data/models/User'
+import { CreateUserResponse } from '../../domain/models/User'
 
 export interface SignUp {
-  execute: (account: CreateUserRequest) => Promise<CreateUserResponse>
+  execute: (account: CreateUserDb) => Promise<CreateUserResponse>
 }
