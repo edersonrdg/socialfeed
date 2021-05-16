@@ -10,7 +10,7 @@ export class SignUpController implements Controller {
 
   async handle (request: CreateUserRequest): Promise<HttpResponse> {
     this.validation.validate(request)
-    const body = await this.signUp.execute(request)
-    return { body, statusCode: 200 }
+    await this.signUp.execute(request)
+    return { statusCode: 200 }
   }
 }

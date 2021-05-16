@@ -9,6 +9,9 @@ class Users {
   email: string
 
   @Column()
+  name: string
+
+  @Column()
   password: string
 
   @CreateDateColumn()

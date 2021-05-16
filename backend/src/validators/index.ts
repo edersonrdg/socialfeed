@@ -11,7 +11,7 @@ export class ValidationSignUp implements Validation {
   validate (data: any) {
     const requiredValidData:requiredValid = data
 
-    const requiredFields = ['email', 'password', 'confirmPassword']
+    const requiredFields = ['email', 'name', 'password', 'confirmPassword']
     for (const field of requiredFields) {
       new RequiredFieldValidation(requiredValidData[field], field).validate()
     }

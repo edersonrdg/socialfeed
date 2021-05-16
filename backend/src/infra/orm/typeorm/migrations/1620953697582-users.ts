@@ -18,6 +18,10 @@ export default class users1620953697582 implements MigrationInterface {
             isUnique: true
           },
           {
+            name: 'name',
+            type: 'varchar'
+          },
+          {
             name: 'password',
             type: 'varchar'
           },
