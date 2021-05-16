@@ -1,5 +1,5 @@
-import { CreateUserDb } from '../../data/models/User'
+import { SignUpRequest } from '../models/User'
 
 export interface SignUp {
-  execute: (account: CreateUserDb) => Promise<void>
+  execute: (account: SignUpRequest) => Promise<void>
 }

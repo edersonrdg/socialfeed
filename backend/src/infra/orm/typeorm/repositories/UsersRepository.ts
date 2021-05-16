@@ -1,7 +1,7 @@
 import { EntityRepository, getRepository } from 'typeorm'
 import Users from '../models/User'
 import { UserRepository } from '../../../../data/protocols/db/IUserRepository'
-import { CreateUserDb } from '../../../../data/models/User'
+import { CreateUserDb, CreateUserResponseDB } from '../../../../data/models/User'
 
 @EntityRepository(Users)
 class UsersRepositoryMySql implements UserRepository {
@@ -17,7 +17,7 @@ class UsersRepositoryMySql implements UserRepository {
     await userRepositoryTypeORM.save(user)
   }
 
-  async getByEmail (email: string): Promise<Users | undefined> {
+  async getByEmail (email: string): Promise<CreateUserResponseDB | undefined> {
     const userRepositoryTypeORM = getRepository(Users)
     const user = await userRepositoryTypeORM.findOne({
       where: { email }

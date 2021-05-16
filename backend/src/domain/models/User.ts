@@ -1,25 +1,25 @@
-export type CreateUserRequest = {
+export type SignUpRequest = {
   name: string
   email: string
   password: string
   confirmPassword: string
 }
 
-export type LoginUserData = {
+export type SignUpResponse = {
+  id: string
+  email: string
+}
+
+export type SignInRequest = {
   email: string
   password: string
 }
 
-export type LoginUserResponse = {
+export type SignInResponse = {
   id: string
   email: string
-  password: string
+  name: string
   created_at: Date
   updated_at: Date
   token: string
-}
-
-export type CreateUserResponse = {
-  id: string
-  email: string
 }

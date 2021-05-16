@@ -1,9 +1,14 @@
-import { CreateUserResponse } from '../../domain/models/User'
-
 export type CreateUserDb = {
   name: string
   email: string
   password: string
 }
 
-export type CreateUserResponseDB = CreateUserResponse
+export type CreateUserResponseDB = {
+  id: string
+  email: string
+  name: string
+  created_at: Date
+  updated_at: Date
+  password?: string
+}

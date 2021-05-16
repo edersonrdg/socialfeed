@@ -1,5 +1,5 @@
 import { Validation } from '../presentation/protocols'
-import { BadRequestError } from '../presentation/errors'
+import { BadRequestError } from '../../src/domain/errors'
 
 export class CompareFieldsValidation implements Validation {
   constructor (

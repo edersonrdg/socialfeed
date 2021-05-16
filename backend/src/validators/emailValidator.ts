@@ -1,4 +1,5 @@
-import { BadRequestError } from '../presentation/errors'
+import { BadRequestError } from '../../src/domain/errors'
+
 import { Validation } from '../presentation/protocols'
 
 export class EmailValidator implements Validation {
