@@ -32,6 +32,19 @@ describe('Validate', () => {
       expect(error).toEqual(new BadRequestError('password is required'))
     }
   })
+  it('should return Error if no name is provided', () => {
+    const validation = makeSut()
+    const request = {
+      email: 'email@gmail.com',
+      password: 'any',
+      confirmPassword: 'any'
+    }
+    try {
+      validation.validate(request)
+    } catch (error) {
+      expect(error).toEqual(new BadRequestError('name is required'))
+    }
+  })
   it('should return Error if no confirm password is provided', () => {
     const validation = makeSut()
     const request = {
