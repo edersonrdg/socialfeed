@@ -1,16 +1,12 @@
 import { SignUp } from '../../../src/domain/userCases/signUp'
-import { CreateUserRequest, CreateUserResponse } from '../../../src/domain/models/User'
+import { SignUpRequest } from '../../../src/domain/models/User'
 import { SignUpController } from '../../../src/presentation/controllers/signUp'
 import { Validation } from '../../../src/presentation/protocols'
 
 const makeaddAccount = () => {
   class AddAccountStub implements SignUp {
-    async execute (account: CreateUserRequest): Promise<CreateUserResponse> {
-      const fakeaccount = {
-        id: 'valid_id',
-        email: account.email
-      }
-      return await new Promise(resolve => resolve(fakeaccount))
+    async execute (account: SignUpRequest): Promise<void> {
+      return await new Promise(resolve => resolve())
     }
   }
   return new AddAccountStub()
@@ -18,7 +14,7 @@ const makeaddAccount = () => {
 
 const makeValidation = () => {
   class ValidationSignUpStub implements Validation {
-    validate (data: CreateUserRequest): Error | void {
+    validate (data: SignUpRequest): Error | void {
     }
   }
   return new ValidationSignUpStub()
@@ -37,16 +33,13 @@ describe('SignUp controller', () => {
     const httpRequest = {
       body: {
         email: 'valid_email@gmail.com',
+        name: 'any',
         password: 'valid_password',
         confirmPassword: 'valid_password'
       }
     }
     const httpResponse = await sut.handle(httpRequest.body)
     expect(httpResponse.statusCode).toBe(200)
-    expect(httpResponse.body).toEqual({
-      id: 'valid_id',
-      email: 'valid_email@gmail.com'
-    })
   })
   it('should call validation with correct values', async () => {
     const { sut, validation } = makeSut()
@@ -54,6 +47,7 @@ describe('SignUp controller', () => {
     const httpRequest = {
       body: {
         email: 'valid_email@gmail.com',
+        name: 'any',
         password: 'valid_password',
         confirmPassword: 'valid_password'
       }
@@ -67,6 +61,7 @@ describe('SignUp controller', () => {
     const httpRequest = {
       body: {
         email: 'valid_email@gmail.com',
+        name: 'any',
         password: 'valid_password',
         confirmPassword: 'valid_password'
       }

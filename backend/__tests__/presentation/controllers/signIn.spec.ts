@@ -1,14 +1,14 @@
 import { SignIn } from '../../../src/domain/userCases/signIn'
-import { LoginUserData, LoginUserResponse } from '../../../src/domain/models/User'
+import { SignInRequest, SignInResponse } from '../../../src/domain/models/User'
 import { SignInController } from '../../../src/presentation/controllers/signIn'
 
 const makeAuth = () => {
   class AuthStub implements SignIn {
-    async execute (account: LoginUserData): Promise<LoginUserResponse> {
+    async execute (account: SignInRequest): Promise<SignInResponse> {
       const fakeaccount = {
         id: '123',
+        name: 'any',
         email: account.email,
-        password: account.password,
         created_at: new Date(13, 23, 2000),
         updated_at: new Date(13, 10, 2000),
         token: 'qowkdowqkdoqwkdoo1k2do12ko21'
@@ -41,8 +41,8 @@ describe('SignUp controller', () => {
     expect(httpResponse.statusCode).toBe(200)
     expect(httpResponse.body).toEqual({
       id: '123',
-      email: 'valid_email@gmail.com',
-      password: 'valid_password',
+      email: httpRequest.body.email,
+      name: 'any',
       created_at: new Date(13, 23, 2000),
       updated_at: new Date(13, 10, 2000),
       token: 'qowkdowqkdoqwkdoo1k2do12ko21'

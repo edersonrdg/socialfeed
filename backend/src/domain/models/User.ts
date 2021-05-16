@@ -5,11 +5,6 @@ export type SignUpRequest = {
   confirmPassword: string
 }
 
-export type SignUpResponse = {
-  id: string
-  email: string
-}
-
 export type SignInRequest = {
   email: string
   password: string

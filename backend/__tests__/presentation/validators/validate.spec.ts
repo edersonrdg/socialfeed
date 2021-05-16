@@ -1,4 +1,4 @@
-import { BadRequestError } from '../../../src/presentation/errors'
+import { BadRequestError } from '../../../src/domain/errors'
 import { ValidationSignUp } from '../../../src/validators'
 
 const makeSut = () => {
@@ -9,6 +9,7 @@ describe('Validate', () => {
   it('should return Error if no email is provided', () => {
     const validation = makeSut()
     const request = {
+      name: 'any',
       password: 'any',
       confirmPassword: 'any'
     }
@@ -21,6 +22,7 @@ describe('Validate', () => {
   it('should return Error if no password is provided', () => {
     const validation = makeSut()
     const request = {
+      name: 'any',
       email: 'email@gmail.com',
       confirmPassword: 'any'
     }
@@ -33,6 +35,7 @@ describe('Validate', () => {
   it('should return Error if no confirm password is provided', () => {
     const validation = makeSut()
     const request = {
+      name: 'any',
       email: 'email@gmail.com',
       password: 'any'
     }
@@ -45,6 +48,7 @@ describe('Validate', () => {
   it('should return Error if password is diferent than confirmPassword', () => {
     const validation = makeSut()
     const request = {
+      name: 'any',
       email: 'email@gmail.com',
       password: 'any',
       confirmPassword: 'diferent any'
@@ -59,6 +63,7 @@ describe('Validate', () => {
   it('should return Error if invalid email is provided', () => {
     const validation = makeSut()
     const request = {
+      name: 'any',
       email: 'email@',
       password: 'any',
       confirmPassword: 'any'
