@@ -18,14 +18,13 @@ class UsersRepositoryMySql implements UserRepository {
     return { id, email }
   }
 
-  async getByEmail (email: string): Promise<boolean> {
+  async getByEmail (email: string): Promise<Users | undefined> {
     const userRepositoryTypeORM = getRepository(Users)
-    const user = await userRepositoryTypeORM.find({
+    const user = await userRepositoryTypeORM.findOne({
       where: { email }
     })
 
-    if (user.length) return true
-    return false
+    return user
   }
 }
 

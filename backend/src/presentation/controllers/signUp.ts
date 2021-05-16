@@ -5,8 +5,7 @@ import { HttpResponse } from '../../presentation/protocols/http'
 import { Validation } from 'presentation/protocols'
 
 export class SignUpController implements Controller {
-  constructor (
-    private readonly signUp: SignUp,
+  constructor (private readonly signUp: SignUp,
     private readonly validation: Validation) {}
 
   async handle (request: CreateUserRequest): Promise<HttpResponse> {
