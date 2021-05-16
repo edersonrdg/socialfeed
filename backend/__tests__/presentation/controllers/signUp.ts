@@ -1,6 +1,7 @@
 import { SignUp } from '../../../src/domain/userCases/signUp'
 import { CreateUserRequest, CreateUserResponse } from '../../../src/domain/models/User'
 import { SignUpController } from '../../../src/presentation/controllers/signUp'
+import { Validation } from '../../../src/presentation/protocols'
 
 const makeaddAccount = () => {
   class AddAccountStub implements SignUp {
@@ -15,10 +16,20 @@ const makeaddAccount = () => {
   return new AddAccountStub()
 }
 
+const makeValidation = () => {
+  class ValidationSignUpStub implements Validation {
+    validate (data: CreateUserRequest): Error | void {
+    }
+  }
+
+  return new ValidationSignUpStub()
+}
+
 const makeSut = () => {
   const signUpService = makeaddAccount()
-  const sut = new SignUpController(signUpService)
-  return { sut }
+  const validation = makeValidation()
+  const sut = new SignUpController(signUpService, validation)
+  return { sut, signUpService, validation }
 }
 
 describe('SignUp controller', () => {
@@ -37,5 +48,18 @@ describe('SignUp controller', () => {
       id: 'valid_id',
       email: 'valid_email@gmail.com'
     })
+  })
+  it('should call validation with correct values', async () => {
+    const { sut, validation } = makeSut()
+    const spyValidate = jest.spyOn(validation, 'validate')
+    const httpRequest = {
+      body: {
+        email: 'valid_email@gmail.com',
+        password: 'valid_password',
+        confirmPassword: 'valid_password'
+      }
+    }
+    await sut.handle(httpRequest.body)
+    expect(spyValidate).toHaveBeenCalledWith(httpRequest.body)
   })
 })
