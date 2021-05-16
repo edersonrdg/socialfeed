@@ -48,4 +48,16 @@ describe('SignUp controller', () => {
       token: 'qowkdowqkdoqwkdoo1k2do12ko21'
     })
   })
+  it('should call signInService with correct values', async () => {
+    const { sut, signInService } = makeSut()
+    const spyService = jest.spyOn(signInService, 'execute')
+    const httpRequest = {
+      body: {
+        email: 'valid_email@gmail.com',
+        password: 'valid_password'
+      }
+    }
+    await sut.handle(httpRequest.body)
+    expect(spyService).toHaveBeenCalledWith(httpRequest.body)
+  })
 })
