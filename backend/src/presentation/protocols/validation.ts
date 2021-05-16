@@ -1,3 +1,3 @@
 export interface Validation {
-  validate: () => Error | void
+  validate: (data: any) => Error | void
 }
