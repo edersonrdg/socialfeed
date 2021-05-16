@@ -42,4 +42,18 @@ describe('Validate', () => {
       expect(error).toEqual(new BadRequestError('confirmPassword is required'))
     }
   })
+  it('should return Error if password is diferent than confirmPassword', () => {
+    const validation = makeSut()
+    const request = {
+      email: 'email@gmail.com',
+      password: 'any',
+      confirmPassword: 'diferent any'
+
+    }
+    try {
+      validation.validate(request)
+    } catch (error) {
+      expect(error).toEqual(new BadRequestError('Confirm password must be equal to password'))
+    }
+  })
 })
