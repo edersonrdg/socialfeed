@@ -56,4 +56,18 @@ describe('Validate', () => {
       expect(error).toEqual(new BadRequestError('Confirm password must be equal to password'))
     }
   })
+  it('should return Error if invalid email is provided', () => {
+    const validation = makeSut()
+    const request = {
+      email: 'email@',
+      password: 'any',
+      confirmPassword: 'any'
+
+    }
+    try {
+      validation.validate(request)
+    } catch (error) {
+      expect(error).toEqual(new BadRequestError('Invalid email'))
+    }
+  })
 })
