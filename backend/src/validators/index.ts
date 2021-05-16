@@ -1,5 +1,4 @@
 import { Validation } from '../presentation/protocols'
-import { CreateUserRequest } from '../domain/models/User'
 import { CompareFieldsValidation } from './compareFields'
 import { EmailValidator } from './emailValidator'
 import { RequiredFieldValidation } from './requiredFields'
@@ -9,7 +8,7 @@ type requiredValid = {
 }
 
 export class ValidationSignUp implements Validation {
-  validate (data: CreateUserRequest) {
+  validate (data: any) {
     const requiredValidData:requiredValid = data
 
     const requiredFields = ['email', 'password', 'confirmPassword']

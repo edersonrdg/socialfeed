@@ -21,7 +21,6 @@ const makeValidation = () => {
     validate (data: CreateUserRequest): Error | void {
     }
   }
-
   return new ValidationSignUpStub()
 }
 
@@ -61,5 +60,18 @@ describe('SignUp controller', () => {
     }
     await sut.handle(httpRequest.body)
     expect(spyValidate).toHaveBeenCalledWith(httpRequest.body)
+  })
+  it('should call signUpService with correct values', async () => {
+    const { sut, signUpService } = makeSut()
+    const spyService = jest.spyOn(signUpService, 'execute')
+    const httpRequest = {
+      body: {
+        email: 'valid_email@gmail.com',
+        password: 'valid_password',
+        confirmPassword: 'valid_password'
+      }
+    }
+    await sut.handle(httpRequest.body)
+    expect(spyService).toHaveBeenCalledWith(httpRequest.body)
   })
 })
