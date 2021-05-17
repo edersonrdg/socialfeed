@@ -4,6 +4,11 @@ export type CreatePostRequest = {
   authorId: string
 }
 
+export type DeletePostRequest = {
+  postId: string
+  authorId: string
+}
+
 export type CreatePostResponse = {
   id: string
   image: string

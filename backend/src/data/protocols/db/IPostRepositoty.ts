@@ -6,4 +6,8 @@ export interface PostRepository {
   list: () => Promise<CreatePostResponseDb[]>
 
   listById: (authorId: string) => Promise<CreatePostResponseDb[]>
+
+  getById: (postId: string) => Promise<CreatePostResponseDb | undefined>
+
+  delete: (postId: string) => Promise<void>
 }

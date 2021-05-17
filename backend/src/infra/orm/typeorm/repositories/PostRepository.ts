@@ -36,4 +36,20 @@ export class PostRepositoryMysql implements PostRepository {
     posts.sort((a, b) => b.created_at.getTime() - a.created_at.getTime())
     return posts
   }
+
+  async getById (postId: string): Promise<CreatePostResponseDb | undefined> {
+    const postRepositoryTypeORM = getRepository(Posts)
+
+    const post = await postRepositoryTypeORM.findOne({
+      where: { id: postId }
+    })
+
+    return post
+  }
+
+  async delete (postId: string): Promise<void> {
+    const postRepositoryTypeORM = getRepository(Posts)
+
+    await postRepositoryTypeORM.delete(postId)
+  }
 }
