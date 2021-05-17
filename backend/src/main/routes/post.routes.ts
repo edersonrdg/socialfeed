@@ -1,11 +1,15 @@
 import { Router } from 'express'
 import { makeCreatePostController } from '../../main/factory/controllers/createPost'
-import { adapt } from '../../main/adapters/express-router'
+import { adapt } from '../adapters/express-router'
 import { auth } from '../middlewares/auth'
+import multer from 'multer'
+import uploadConfig from '../config/upload'
+
+const upload = multer(uploadConfig)
 
 const postRoutes = Router()
 
 postRoutes.use(auth)
-postRoutes.post('/', adapt(makeCreatePostController()))
+postRoutes.post('/', upload.single('image'), adapt(makeCreatePostController()))
 
 export default postRoutes
