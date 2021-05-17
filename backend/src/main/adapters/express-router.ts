@@ -6,7 +6,7 @@ export const adapt = (controller: Controller) => {
     const data = {
       ...(request.body || {}),
       ...(request.params || {}),
-      image: request.file?.filename,
+      ...(request.file || {}),
       authorId: request.userId
     }
     const httpResponse = await controller.handle(data)

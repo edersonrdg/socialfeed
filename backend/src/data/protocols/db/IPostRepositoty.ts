@@ -4,4 +4,6 @@ export interface PostRepository {
   create: (data: CreatePostDb) => Promise<CreatePostResponseDb>
 
   list: () => Promise<CreatePostResponseDb[]>
+
+  listById: (authorId: string) => Promise<CreatePostResponseDb[]>
 }
