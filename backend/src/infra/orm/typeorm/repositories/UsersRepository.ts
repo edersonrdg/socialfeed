@@ -25,6 +25,14 @@ class UsersRepositoryMySql implements UserRepository {
 
     return user
   }
+
+  async getById (id: string): Promise<CreateUserResponseDB | undefined> {
+    const userRepositoryTypeORM = getRepository(Users)
+    const user = await userRepositoryTypeORM.findOne({
+      where: { id }
+    })
+    return user
+  }
 }
 
 export default UsersRepositoryMySql

@@ -5,4 +5,5 @@ export interface UserRepository {
 
   getByEmail: (email: string) => Promise<CreateUserResponseDB | undefined>
 
+  getById: (id: string) => Promise<CreateUserResponseDB | undefined>
 }

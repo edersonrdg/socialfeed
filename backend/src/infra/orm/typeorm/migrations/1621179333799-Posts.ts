@@ -18,7 +18,8 @@ export class Posts1621179333799 implements MigrationInterface {
           },
           {
             name: 'description',
-            type: 'varchar'
+            type: 'varchar',
+            isNullable: true
           },
           {
             name: 'authorId',

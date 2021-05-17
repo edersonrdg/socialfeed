@@ -19,3 +19,14 @@ export class ValidationSignUp implements Validation {
     new EmailValidator(data.email).validate()
   }
 }
+
+export class ValidationCreatePost implements Validation {
+  validate (data: any) {
+    const requiredValidData:requiredValid = data
+
+    const requiredFields = ['image', 'authorId']
+    for (const field of requiredFields) {
+      new RequiredFieldValidation(requiredValidData[field], field).validate()
+    }
+  }
+}
