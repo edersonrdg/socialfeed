@@ -16,4 +16,13 @@ export class PostRepositoryMysql implements PostRepository {
 
     return post
   }
+
+  async list (): Promise<CreatePostResponseDb[]> {
+    const postRepositoryTypeORM = getRepository(Posts)
+
+    const posts = await postRepositoryTypeORM.find()
+
+    posts.sort((a, b) => b.created_at.getTime() - a.created_at.getTime())
+    return posts
+  }
 }
