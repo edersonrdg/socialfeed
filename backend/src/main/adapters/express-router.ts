@@ -5,7 +5,8 @@ export const adapt = (controller: Controller) => {
   return async (request: Request, response: Response) => {
     const data = {
       ...(request.body || {}),
-      ...(request.params || {})
+      ...(request.params || {}),
+      authorId: request.userId
     }
     const httpResponse = await controller.handle(data)
 

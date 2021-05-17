@@ -24,7 +24,7 @@ export class ValidationCreatePost implements Validation {
   validate (data: any) {
     const requiredValidData:requiredValid = data
 
-    const requiredFields = ['image', 'authorId']
+    const requiredFields = ['image']
     for (const field of requiredFields) {
       new RequiredFieldValidation(requiredValidData[field], field).validate()
     }

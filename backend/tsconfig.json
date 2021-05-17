@@ -3,7 +3,7 @@
     "target": "es2019",
     "module": "commonjs",
     "outDir": "./dist",
-    "rootDir": "./src",
+    "rootDirs": ["src", "__tests__"],
     "strict": true,
     "baseUrl": "./src",
     "strictPropertyInitialization": false,
@@ -12,5 +12,7 @@
     "forceConsistentCasingInFileNames": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-  }
+    "typeRoots": [ "./src/@types", "./node_modules/@types"]
+  },
+  "include": ["src", "__tests__", "@types"],
 }

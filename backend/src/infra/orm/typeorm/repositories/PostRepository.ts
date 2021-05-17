@@ -13,6 +13,7 @@ export class PostRepositoryMysql implements PostRepository {
     })
 
     await postRepositoryTypeORM.save(post)
+
     return post
   }
 }
