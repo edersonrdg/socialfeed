@@ -18,11 +18,11 @@ Muitas ideias e conceitos de infraestrutura deste projeto são baseadas em conce
 
 Social feed tem como principais tecnologias utilizadas:
 
-- [Express](https://expressjs.com) - HTML enhanced for web apps!
-- [Typeorm](https://typeorm.io/#/) - awesome web-based text editor
-- [Mysql](https://www.mysql.com) - Markdown parser done right. Fast and easy to extend.
-- [Typescript](https://www.typescriptlang.org) - great UI boilerplate for modern web apps
-- [Docker](https://www.docker.com) - evented I/O for the backend
+- [Express](https://expressjs.com) - Microframework que otimiza a construção de aplicações web e API
+- [Typeorm](https://typeorm.io/#/) - ORM com grande afinidade com códigos typescript
+- [Mysql](https://www.mysql.com) - Banco sql
+- [Typescript](https://www.typescriptlang.org) - superconjunto que adiciona tipagem e alguns outros recursos ao javascript.
+- [Docker](https://www.docker.com) - Serviço de virtualização de nível de sistema operacional
 
 ## Installation
 
