@@ -33,24 +33,16 @@ npm install
 ```
 
 ## Development
-Primeiro:
-```sh
-configure os dados relacionados a seu banco de dados no ormconfig.json
-```
-segundo
-```sh
-Crie um arquivo .env na raiz do projeto e nele adicione os dados relacionados a porta e jwt secrete.
+Primeiro configure os dados relacionados a seu banco de dados no ormconfig.json
 
-exemplo:
-
+Segundo Crie um arquivo .env na pasta raiz e nele adicione os dados relacionados a porta e jwt secrete como no exemplo abaixo
+```sh
 PORT=3333
 JWT_SECRETE=OKQWDQW09K1209DK2109KD1209Q
 ```
 
-terceiro:
+terceiro rode o servidor
 ```sh
-rode o servidor
-
 npm run dev
 ```
 
