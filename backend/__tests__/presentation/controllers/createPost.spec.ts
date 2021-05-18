@@ -57,4 +57,20 @@ describe('Create post controller', () => {
       updated_at: new Date(13, 10, 2000)
     })
   })
+  it('should call CreatePostService with correct values', async () => {
+    const { sut, createPostService } = makeSut()
+    const spyService = jest.spyOn(createPostService, 'execute')
+    const request = {
+      image: 'any_image',
+      filename: 'any_image',
+      description: 'any_description',
+      authorId: '123'
+    }
+    await sut.handle(request)
+    expect(spyService).toHaveBeenCalledWith({
+      image: 'any_image',
+      description: 'any_description',
+      authorId: '123'
+    })
+  })
 })
