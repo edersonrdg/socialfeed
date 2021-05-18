@@ -29,19 +29,20 @@ Install the dependencies and devDependencies and start the server.
 ```sh
 git clone https://github.com/edersonrdg/socialfeed.git
 cd socialfeed
+cd backend
 npm install
 ```
 
 ## Development
-Primeiro configure os dados relacionados a seu banco de dados no ormconfig.json
+- Primeiro configure os dados relacionados a seu banco de dados no ormconfig.json
 
-Segundo Crie um arquivo .env na pasta raiz e nele adicione os dados relacionados a porta e jwt secrete como no exemplo abaixo
+- Segundo Crie um arquivo .env na pasta raiz e nele adicione os dados relacionados a porta e jwt secrete como no exemplo abaixo
 ```sh
 PORT=3333
 JWT_SECRETE=OKQWDQW09K1209DK2109KD1209Q
 ```
 
-terceiro rode o servidor
+- terceiro rode o servidor
 ```sh
 npm run dev
 ```
