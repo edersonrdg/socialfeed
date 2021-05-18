@@ -16,7 +16,7 @@ Social feed é uma aplicação inspirada em rede sociais que se baseiam principa
 
 Social feed tem como principais tecnologias utilizadas:
 
-- [Express] - HTML enhanced for web apps!
+- [Express](https://expressjs.com) - HTML enhanced for web apps!
 - [Typeorm](https://typeorm.io/#/) - awesome web-based text editor
 - [Mysql](https://www.mysql.com) - Markdown parser done right. Fast and easy to extend.
 - [Typescript](https://www.typescriptlang.org) - great UI boilerplate for modern web apps
@@ -42,7 +42,7 @@ PORT=3333
 JWT_SECRETE=OKQWDQW09K1209DK2109KD1209Q
 ```
 
-- terceiro rode o servidor
+- Terceiro rode o servidor
 ```sh
 npm run dev
 ```
