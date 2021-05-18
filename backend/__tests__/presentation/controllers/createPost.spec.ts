@@ -32,7 +32,7 @@ const makeSut = () => {
   const createPostService = makeCreatePostService()
   const validation = makeValidation()
   const sut = new CreatePostController(validation, createPostService)
-  return { sut, createPostService }
+  return { sut, createPostService, validation }
 }
 
 describe('Create post controller', () => {
@@ -68,6 +68,22 @@ describe('Create post controller', () => {
     }
     await sut.handle(request)
     expect(spyService).toHaveBeenCalledWith({
+      image: 'any_image',
+      description: 'any_description',
+      authorId: '123'
+    })
+  })
+  it('should call validation with correct values', async () => {
+    const { sut, validation } = makeSut()
+    const spyValidation = jest.spyOn(validation, 'validate')
+    const request = {
+      image: 'any_image',
+      filename: 'any_image',
+      description: 'any_description',
+      authorId: '123'
+    }
+    await sut.handle(request)
+    expect(spyValidation).toHaveBeenCalledWith({
       image: 'any_image',
       description: 'any_description',
       authorId: '123'
