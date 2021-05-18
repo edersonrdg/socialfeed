@@ -5,7 +5,7 @@ const makeSut = () => {
   return new ValidationSignUp()
 }
 
-describe('Validate', () => {
+describe('Validate signUp', () => {
   it('should return Error if no email is provided', () => {
     const validation = makeSut()
     const request = {
