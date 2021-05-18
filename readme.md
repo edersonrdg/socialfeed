@@ -3,7 +3,7 @@
 
 Social feed é uma aplicação inspirada em rede sociais que se baseiam principalmente em postagens de imagens.
 
-Muitas ideias e conceitos de infraestrutura são baseadas em conceitos do repositório [clean-ts-api](https://github.com/rmanguinho/clean-ts-api) de Rodrigo manguinho.
+Muitas ideias e conceitos de infraestrutura deste projeto são baseadas em conceitos do repositório [clean-ts-api](https://github.com/rmanguinho/clean-ts-api) de Rodrigo manguinho.
 
 ## Features
 
