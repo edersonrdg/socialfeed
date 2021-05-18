@@ -25,7 +25,8 @@
     "build": "tsc",
     "dev": "tsnd src/index.ts",
     "typeorm": "tsnd ./node_modules/typeorm/cli.js",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --verbose --watch"
   },
   "dependencies": {
     "@types/bcryptjs": "^2.4.2",

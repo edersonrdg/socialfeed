@@ -8,6 +8,7 @@ import { ValidationCreatePost } from '../../../validators'
 export const makeCreatePostController = (): Controller => {
   const userRepository = new UsersRepositoryMySql()
   const postRepository = new PostRepositoryMysql()
+  const validationCreatePost = new ValidationCreatePost()
   const createPostService = new CreatePostService(userRepository, postRepository)
-  return new CreatePostController(new ValidationCreatePost(), createPostService)
+  return new CreatePostController(validationCreatePost, createPostService)
 }

@@ -7,6 +7,8 @@ import { ValidationSignUp } from '../../../validators'
 
 export const makeSignUpController = (): Controller => {
   const userRepository = new UsersRepositoryMySql()
-  const signUpService = new SignUpService(userRepository, new BcryptAdapter(8))
-  return new SignUpController(signUpService, new ValidationSignUp())
+  const bcyptAdapter = new BcryptAdapter(8)
+  const signUpService = new SignUpService(userRepository, bcyptAdapter)
+  const validationSignUp = new ValidationSignUp()
+  return new SignUpController(signUpService, validationSignUp)
 }

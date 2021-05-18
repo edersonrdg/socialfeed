@@ -8,7 +8,8 @@ import env from '../../../main/config/env'
 
 export const makeSignInController = (): Controller => {
   const userRepository = new UsersRepositoryMySql()
+  const bcryptAdapter = new BcryptAdapter(8)
   const jwtAdapter = new JwtAdapter(env.jwtSecrete)
-  const signInService = new SignInService(userRepository, new BcryptAdapter(8), jwtAdapter)
+  const signInService = new SignInService(userRepository, bcryptAdapter, jwtAdapter)
   return new SignInController(signInService)
 }

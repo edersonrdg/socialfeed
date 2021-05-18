@@ -1,12 +1,14 @@
 import { Router } from 'express'
-import { makeCreatePostController } from '../../main/factory/controllers/createPost'
 import { adapt } from '../adapters/express-router'
 import { auth } from '../middlewares/auth'
 import multer from 'multer'
 import uploadConfig from '../config/upload'
-import { makeListPostController } from '../../main/factory/controllers/listPosts'
-import { makeDeletePostController } from '../../main/factory/controllers/deletePost'
-import { makeListEspecificPostController } from '../../main/factory/controllers/listEspecifcPosts'
+import {
+  makeListPostController,
+  makeDeletePostController,
+  makeListEspecificPostController,
+  makeCreatePostController
+} from '../../main/factory/controllers'
 
 const upload = multer(uploadConfig)
 
