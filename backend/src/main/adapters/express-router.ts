@@ -10,7 +10,6 @@ export const adapt = (controller: Controller) => {
       authorId: request.userId
     }
     const httpResponse = await controller.handle(data)
-
     return response.status(httpResponse.statusCode).json(httpResponse.body)
   }
 }
