@@ -7,4 +7,4 @@ install:
   - npm ci
 
 script:
-  - npm run test:coveralls
+  - npm run test
