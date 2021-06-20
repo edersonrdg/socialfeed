@@ -1,6 +1,7 @@
-install:
-  - "npm ci"
+language: node_js
+
 node_js:
-  - 15
+  - node
+
 script:
-  - "npm run test:coveralls"
+  - npm run test:coveralls
